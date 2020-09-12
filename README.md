@@ -43,6 +43,7 @@ make start
 * `RTP_END`：结束RTP端口
 * `EXT_IP`：宿主机IP，或公网IP，默认SIP Profile中的`ext-sip-ip`及`ext-rtp-ip`会用到它。
 * `FREESWITCH_DOMAIN`：默认的FreeSWITCH域
+* `LOCAL_NETWORK_ACL`：默认为`none`，在`host`网络模式下可以关闭。
 
 # 配置
 
@@ -68,11 +69,12 @@ make start
 常用命令都在Makefile中，看起来也很直观。如果你的环境中没有`make`，也可以直接运行相关的命令。
 
 * `make setup`：初始化环境，如果`.env`不存在，会从`env.example`复制。
-* `make start`：启动镜象。
-* `make run`：启动镜象并进入后台模式。
+* `make start`：启动镜像。
+* `make run`：启动镜像并进入后台模式。
 * `make cli`：进入容器并进入`fs_cli`。
 * `make bash`：进入容器并进入`bash` Shell环境。可以进一步执行`fs_cli`等。
 * `make stop`：停止容器。
+* `make pull`：更新镜像，更新后可以用。
 
 如果没有安装Docker Compose，也可以直接使用Docker命令启动容器，如：
 
@@ -118,6 +120,16 @@ make start
 
 如果环境变量中没有`EXT_IP`，则可能无法启动Sofia Profile，请禁掉`default.xml`和`public.xml`中的`ext-sip-ip`和`ext-rtp-ip`参数。
 
+默认的配置是NAT模式，我们在Profile中启动了如下配置：
+
+```xml
+    <param name="local-network-acl" value="$${local_net_acl}"/>
+```
+
+注意，该环境变量默认为`none`，它实际上是一个不存在的ACL，所以FreeSWITCH对任何来源IP都会认为它在NAT后面。
+
+如果在`host`网络模式下可以在`.env`中注释掉这个环境变量，让它使用默认的`localnet.auto`。
+
 # 制作自己的镜像
 
 你可以根据本镜像制作自己的镜像。ToDo
@@ -126,7 +138,18 @@ make start
 
 如果你发现有任何问题，请给我们提一个Issue。
 
-欢迎的Pull Request。
+欢迎提Pull Request。
+
+# 测试号码
+
+默认配置可以拨打如下测试号码：
+
+```
+9196 回音测试Echo
+888  XSWITCH技术服务电话
+3000 进入会议
+其它号码，查找本地注册用户
+```
 
 # 关于我们
 

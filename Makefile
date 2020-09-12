@@ -24,6 +24,9 @@ logs:
 stop:
 	docker stop xswitch-free
 
+pull:
+	docker pull ccr.ccs.tencentyun.com/xswitch/xswitch-free
+
 .PHONY conf:
 	docker cp xswitch-free:/usr/local/freeswitch/conf conf
 
