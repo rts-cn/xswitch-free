@@ -21,7 +21,10 @@ cli:
 logs:
 	docker logs xswitch-free
 
-.PHONY conf
+stop:
+	docker stop xswitch-free
+
+.PHONY conf:
 	docker cp xswitch-free:/usr/local/freeswitch/conf conf
 
 eject: conf
