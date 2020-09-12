@@ -25,7 +25,7 @@ make setup # 可选，生成.env，修改生成的.env里的环境变量
 make start
 ```
 
-首先，Clone本项目，然后进入`xswitch-free`目录，`make setup`会生成`.env`，里面是相关的环境变量，可以根据情况修改。最后`make start`会以NAT方式启动容器。
+首先，Clone本项目，然后进入`xswitch-free`目录，`make setup`会生成`.env`，里面是相关的环境变量，可以根据情况修改（一般至少要将EXT_IP改为你自己宿主机的IP）。最后`make start`会以NAT方式启动容器。
 
 启动后，你就可以用你称手的软电话注册到FreeSWITCH的IP上（默认端口5060），用户名密码任意，打电话可以看到日志，注册两个不同的号码可以互拨，试一把看爽不爽。
 
@@ -73,6 +73,22 @@ make start
 * `make cli`：进入容器并进入`fs_cli`。
 * `make bash`：进入容器并进入`bash` Shell环境。可以进一步执行`fs_cli`等。
 * `make stop`：停止容器。
+
+如果没有安装Docker Compose，也可以直接使用Docker命令启动容器，如：
+
+```bash
+docker run --rm --name xswitch-free \
+    -p 5060:5060/udp \
+    -p 2000-2020:2000-2020/udp \
+    -e ext_ip=192.168.7.7 \
+    -e sip_port=5060 \
+    -e sip_public_port=5080 \
+    -e rtp_start=2000 \
+    -e rtp_end=2010 \
+    xswitch-free
+```
+
+可以看出，这样需要输入很多参数，所以，还是使用Docker Compose比较方便。
 
 # 修改配置
 

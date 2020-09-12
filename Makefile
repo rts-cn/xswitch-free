@@ -19,7 +19,7 @@ cli:
 	docker exec -it xswitch-free fs_cli
 
 logs:
-	docker logs xswitch-free
+	docker logs -f --tail=100 xswitch-free
 
 stop:
 	docker stop xswitch-free
