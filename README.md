@@ -1,6 +1,6 @@
 # xswitch-free
 
-`xswitch-free`是一个Docker镜象，与<https://xswitch.cn>同款，有删减。
+`xswitch-free`是一个Docker镜象，与<https://xswitch.cn>同款，有删减。本镜象一般都基于FreeSWITCH最新的版本，有一些我们自己的补丁。我们绝大多数的补丁都已经合并到了上游的FreeSWITCH仓库中，其它的一些补丁也会逐步开源出来。
 
 很多朋友想试用FreeSWITCH，但是从源代码安装比较复杂。FreeSWITCH虽然有相应的安装包，但用起来也不那么方便。
 
