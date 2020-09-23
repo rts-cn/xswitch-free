@@ -8,7 +8,12 @@
 
 # 环境准备
 
-首先，你要有一个Docker，如果安装Docker超出了本文的范围，请参阅相关资料。
+首先，你要有一个Docker环境，如何安装Docker超出了本文的范围，您可以参阅以下链接，或自行查找相关资料安装。安装是注意有选择国内镜像站点的一些设置比较有用，在以后使用的时候可以节省一些下载镜像的时间。
+
+* https://www.runoob.com/docker/windows-docker-install.html
+* https://www.runoob.com/docker/ubuntu-docker-install.html
+* https://www.runoob.com/docker/macos-docker-install.html
+* https://yq.aliyun.com/articles/625403
 
 Docker Compose也需要安装，但不是必须的，只是下面的命令都依赖于Docker Compose。
 
