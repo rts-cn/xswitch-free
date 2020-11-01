@@ -23,4 +23,4 @@ services:
     #   - SYS_PTRACE
     #   - NET_ADMIN # for iptables to work
     # volumes:
-    #   - conf/:/usr/local/freeswitch/conf:cached
+      #  - ./conf/:/usr/local/freeswitch/conf:cached
