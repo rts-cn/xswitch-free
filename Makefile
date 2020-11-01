@@ -30,7 +30,7 @@ pull:
 	docker pull ccr.ccs.tencentyun.com/xswitch/xswitch-free
 
 .PHONY conf:
-	docker cp xswitch-free:/usr/local/freeswitch/conf conf
+	docker cp xswitch-free:/usr/local/freeswitch/conf .
 
 eject: conf
 	echo conf copied to local dir, please edit docker-compose.yml to use it
