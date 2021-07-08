@@ -8,14 +8,14 @@
 
 # 环境准备
 
-首先，你要有一个Docker环境，如何安装Docker超出了本文的范围，您可以参阅以下链接，或自行查找相关资料安装。安装是注意有选择国内镜像站点的一些设置比较有用，在以后使用的时候可以节省一些下载镜像的时间。
+首先，你要有一个Docker环境，如何安装Docker超出了本文的范围，您可以参阅以下链接，或自行查找相关资料安装。安装时注意有选择国内镜像站点的一些设置比较有用，在以后使用的时候可以节省一些下载镜像的时间。
 
 * https://www.runoob.com/docker/windows-docker-install.html
 * https://www.runoob.com/docker/ubuntu-docker-install.html
 * https://www.runoob.com/docker/macos-docker-install.html
 * https://yq.aliyun.com/articles/625403
 
-Docker Compose也需要安装，但不是必须的，只是下面的命令都依赖于Docker Compose。
+Docker Compose也需要安装，但不是必须的，只是安装了能更方便些，下面的命令大都依赖于Docker Compose。
 
 本镜象支持在Linux、Mac、Windows宿主机上运行。
 
@@ -32,7 +32,7 @@ make start
 
 首先，Clone本项目，然后进入`xswitch-free`目录，`make setup`会生成`.env`，里面是相关的环境变量，可以根据情况修改（一般至少要将EXT_IP改为你自己宿主机的IP）。最后`make start`会以NAT方式启动容器。
 
-启动后，你就可以用你称手的软电话注册到FreeSWITCH的IP上（默认端口5060），用户名密码任意，打电话可以看到日志，注册两个不同的号码可以互拨，试一把看爽不爽。
+启动后，你就可以用你称手的软电话注册到FreeSWITCH的IP上（默认端口5060），**用户名和密码任意**，打电话可以看到日志，注册两个不同的号码可以互拨，试一把看爽不爽。
 
 如果想进入控制台，可以打开另一个终端，执行`make cli`。
 
@@ -52,8 +52,7 @@ make start
 
 # 配置
 
-本镜象没有使用FreeSWITCH的默认配置，FreeSWITCH的默认配置为了展示FreeSWITCH各种强大的功能设计，复杂且初学者难以理解，所以，我们使用了最小化的配置，目标是让使用者快速上手，并进一步细化打造自己的镜像和容器。
-
+本镜象没有使用FreeSWITCH的默认配置。FreeSWITCH的默认配置为了展示FreeSWITCH各种强大的功能设计，复杂且初学者难以理解，所以，我们使用了最小化的配置，目标是让使用者快速上手，并进一步细化打造自己的镜像和容器。
 
 以下配置接受任何注册和打电话。也就是说，你可以用软电话。
 
@@ -112,7 +111,7 @@ docker run --rm --name xswitch-free \
       - conf/:/usr/local/freeswitch/conf:cached
 ```
 
-修改重需要重启镜像：
+修改后需要重启镜像：
 
 ```bash
 make stop
@@ -137,7 +136,7 @@ make start
 
 # 制作自己的镜像
 
-你可以根据本镜像制作自己的镜像。ToDo
+你在本镜像的基础上制作自己的镜像。
 
 # 报告问题
 
@@ -153,7 +152,7 @@ make start
 9196 回音测试Echo
 888  XSWITCH技术服务电话
 3000 进入会议
-其它号码，查找本地注册用户
+其它号码，查找本地注册用户并桥接
 ```
 
 # 关于我们
@@ -163,7 +162,7 @@ make start
 # FAQ
 
 * Q：本镜像是否适合在生产使用？
-* A：我们就是在生产上使用的，所以，没有任何问题。只是，我们默认的配置是为了帮助大家学习和入门，在生产上使用，推荐使用我们有商业技术支持的版本。
+* A：我们就是在生产上使用的，所以，没有任何问题。只是，我们默认的配置是为了帮助大家学习和入门，没有过多考虑安全性，如果在生产上使用，需要仔细配置。另外，也强烈推荐使用我们有商业技术支持的版本。
 
 * Q：我可以安装其它软件吗？
 * A：本镜像基于Debian Buster制作，你可以使用`apt-get update`以及`apt-get install xxxx`安装任何其它软件。
