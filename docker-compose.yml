@@ -9,10 +9,6 @@ services:
     environment:
         - FREESWITCH_DOMAIN=${FREESWITCH_DOMAIN}
     env_file: .env
-    # command: ["bash"]
-    # stdin_open: true
-    # tty: true
-    # network-mode: host
     ports:
       - "${RTP_START:-2000}-${RTP_END:-2000}:${RTP_START:-2100}-${RTP_END:-2100}/udp"
       - "${SIP_PORT:-5060}:${SIP_PORT:-5060}/udp"
@@ -21,11 +17,6 @@ services:
       - "${SIP_PUBLIC_PORT:-5080}:${SIP_PUBLIC_PORT:-5080}/tcp"
       - "${WS_PORT}:${WS_PORT}"
       - "${WSS_PORT}:${WSS_PORT}"
-    #   - "${VERTO_WS_PORT}:${VERTO_WS_PORT}"
-    #   - "${VERTO_WSS_PORT}:${VERTO_WSS_PORT}"
-    # cap_add:
-    #   - SYS_PTRACE
-    #   - NET_ADMIN # for iptables to work
     volumes:
        - ./conf/:/usr/local/freeswitch/conf:cached
        - ./certs/:/usr/local/freeswitch/certs
