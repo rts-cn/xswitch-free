@@ -4,9 +4,10 @@ all:
 	echo Hi
 
 setup:
-	if [[ ! -f .env ]]; then \
+	@if [[ ! -f .env ]]; then \
 		cp env.example .env; \
 	fi
+	@echo Done.
 
 run:
 	docker-compose up -d
