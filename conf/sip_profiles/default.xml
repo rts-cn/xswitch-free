@@ -18,8 +18,8 @@
     <param name="sip-port" value="$${sip_port}"/>
 
     <!-- for easy dev -->
-    <param name="accept-blind-reg" value="true"/>
-    <param name="accept-blind-auth" value="true"/>
+    <!-- <param name="accept-blind-reg" value="true"/> -->
+    <!-- <param name="accept-blind-auth" value="true"/> -->
 
     <param name="force-register-domain" value="$${domain}"/>
     <param name="force-register-db-domain" value="$${domain}"/>
