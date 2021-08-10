@@ -23,7 +23,7 @@
     <param name="apply-candidate-acl" value="rfc1918.auto"/>
     <param name="apply-candidate-acl" value="localnet.auto"/>
     <param name="ws-binding" value=":$${ws_port}" />
-		<param name="wss-binding" value=":$${wss_port}" />
+    <param name="wss-binding" value=":$${wss_port}" />
 
     <!-- for easy dev -->
     <!-- <param name="accept-blind-reg" value="true"/> -->
