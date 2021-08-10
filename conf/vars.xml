@@ -1,0 +1,30 @@
+<include>
+  <X-PRE-PROCESS cmd="set" data="global_codec_prefs=PCMA,PCMU,G722,OPUS"/>
+  <X-PRE-PROCESS cmd="set" data="disable_system_api_commands=true"/>
+  <X-PRE-PROCESS cmd="set" data="xswitch_setup_iptables=true"/>
+  <X-PRE-PROCESS cmd="set" data="default_password=1234"/>
+  <X-PRE-PROCESS cmd="set" data="domain=$${local_ip_v4}"/>
+  <!-- overwride domain if ENV is set -->
+  <X-PRE-PROCESS cmd="env-set" data="domain=$FREESWITCH_DOMAIN"/>
+  <X-PRE-PROCESS cmd="set" data="local_network_acl=localnet.auto"/>
+  <!-- overwride local_network_acl if ENV is set -->
+  <X-PRE-PROCESS cmd="env-set" data="local_network_acl=$LOCAL_NETWORK_ACL"/>
+  <X-PRE-PROCESS cmd="env-set" data="sip_port=$SIP_PORT"/>
+  <X-PRE-PROCESS cmd="env-set" data="sip_public_port=$SIP_PUBLIC_PORT"/>
+  <X-PRE-PROCESS cmd="env-set" data="sip_tls_port=$SIP_TLS_PORT"/>
+  <X-PRE-PROCESS cmd="env-set" data="sip_public_tls_port=$SIP_PUBLIC_TLS_PORT"/>
+  <X-PRE-PROCESS cmd="env-set" data="rtp_start_port=$RTP_START"/>
+  <X-PRE-PROCESS cmd="env-set" data="rtp_end_port=$RTP_END"/>
+  <X-PRE-PROCESS cmd="env-set" data="EXT_IP=$EXT_IP"/>
+  <X-PRE-PROCESS cmd="env-set" data="ext_sip_ip=$EXT_IP"/>
+  <X-PRE-PROCESS cmd="env-set" data="ext_rtp_ip=$EXT_IP"/>
+
+  <!-- overwride if ENV is set, otherwise ignore  -->
+  <X-PRE-PROCESS cmd="env-set" data="ext_sip_ip=$EXT_SIP_IP"/>
+  <X-PRE-PROCESS cmd="env-set" data="ext_rtp_ip=$EXT_RTP_IP"/>
+
+  <X-PRE-PROCESS cmd="env-set" data="VERTO_WS_PORT=$VERTO_WS_PORT"/>
+  <X-PRE-PROCESS cmd="env-set" data="VERTO_WSS_PORT=$VERTO_WSS_PORT"/>
+  <X-PRE-PROCESS cmd="env-set" data="sip_tls_enable=true"/>
+  <X-PRE-PROCESS cmd="env-set" data="NATS_URL=$NATS_URL"/>
+</include>

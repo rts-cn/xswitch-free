@@ -1,0 +1,18 @@
+<configuration name="switch.conf" description="Core Configuration">
+  <settings>
+    <param name="core-db-name" value="/dev/shm/core.db" />
+    <param name="colorize-console" value="true"/>
+
+    <!-- Max number of sessions to allow at any given time -->
+    <param name="max-sessions" value="20000"/>
+    <!--Most channels to create per second -->
+    <param name="sessions-per-second" value="20000"/>
+
+    <!-- Default Global Log Level - value is one of debug,info,notice,warning,err,crit,alert -->
+    <param name="loglevel" value="debug"/>
+
+    <!-- RTP port range -->
+    <param name="rtp-start-port" value="$${rtp_start_port}"/>
+    <param name="rtp-end-port" value="$${rtp_end_port}"/>
+  </settings>
+</configuration>

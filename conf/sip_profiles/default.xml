@@ -1,0 +1,28 @@
+<profile name="default">
+  <aliases>
+	<alias name="$${domain}"/>
+  </aliases>
+  <settings>
+    <param name="auth-calls" value="true"/>
+    <param name="debug" value="0"/>
+    <param name="apply-nat-acl" value="nat.auto"/>
+    <param name="local-network-acl" value="$${local_network_acl}"/>
+    <param name="sip-trace" value="yes"/>
+    <param name="dialplan" value="XML"/>
+    <param name="context" value="default"/>
+    <param name="codec-prefs" value="$${global_codec_prefs}"/>
+    <param name="rtp-ip" value="$${local_ip_v4}"/>
+    <param name="sip-ip" value="$${local_ip_v4}"/>
+    <param name="ext-rtp-ip" value="$${ext_rtp_ip}"/>
+    <param name="ext-sip-ip" value="$${ext_sip_ip}"/>
+    <param name="sip-port" value="$${sip_port}"/>
+
+    <!-- for easy dev -->
+    <param name="accept-blind-reg" value="true"/>
+    <param name="accept-blind-auth" value="true"/>
+
+    <param name="force-register-domain" value="$${domain}"/>
+    <param name="force-register-db-domain" value="$${domain}"/>
+
+  </settings>
+</profile>

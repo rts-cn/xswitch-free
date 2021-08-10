@@ -1,0 +1,55 @@
+<configuration name="xcc.conf" description="Enterprise Cloud Communication">
+    <settings>
+      <param name="debug" value="0"/>
+      <param name="nats-url" value="$${NATS_URL}"/>
+      <!-- event prefix, mostly you want to end with a . -->
+      <param name="publish-events-subject-prefix" value="event."/>
+      <param name="cdr-format" value="CUSTOM" />
+      <!-- <param name="xml-handler-bindings" value="directory|config" /> -->
+      <param name="xml-handler-bindings" value="directory" />
+    </settings>
+    <bindings>
+      <xparam name="ALL"/>
+      <xparam name="HEARTBEAT"/>
+      <!-- <param name="CHANNEL_CREATE"/> -->
+      <!-- <param name="CHANNEL_BRIDGE"/> -->
+      <!-- <param name="CHANNEL_PROGRESS"/> -->
+      <!-- <param name="CHANNEL_PROGRESS_MEDIA"/> -->
+      <!-- <param name="CHANNEL_ANSWER"/> -->
+      <!-- <param name="CHANNEL_EXECUTE"/> -->
+      <!-- <param name="CHANNEL_EXECUTE_COMPLETE"/> -->
+      <!-- <param name="CHANNEL_HANGUP"/> -->
+      <!-- <param name="CHANNEL_HANGUP_COMPLETE"/> -->
+      <param name="RECORD_START"/>
+      <param name="RECORD_STOP"/>
+      <!-- <param name="DETECTED_SPEECH"/> -->
+      <!-- <param name="CUSTOM" subclass="conference::maintenance"/> -->
+      <!-- <param name="CUSTOM" subclass="callcenter::info"/> -->
+      <!-- <param name="CUSTOM" subclass="verto::login"/> -->
+      <param name="CUSTOM" subclass="sofia::register"/>
+      <param name="CUSTOM" subclass="sofia::unregister"/>
+      <param name="CUSTOM" subclass="sofia::expire"/>
+    </bindings>
+    <subs>
+      <param name="cn.xswitch.node.$${core_uuid}"/>
+      <param name="cn.xswitch.node.test"/>
+      <param name="cn.xswitch.node.dev"/>
+      <param name="cn.xswitch.node.$${hostname}"/>
+      <!-- <param name="cn.xswitch.node.node1"/> -->
+    </subs>
+    <cdr leg="a">
+          <param name="caller_id_name" value="caller_id_name"/>
+          <param name="caller_id_number" value="caller_id_number"/>
+          <param name="destination_number" value="destination_number"/>
+          <param name="context" value="context"/>
+          <param name="direction" value="direction"/>
+          <param name="start_stamp" value="start_stamp"/>
+          <param name="answer_stamp" value="answer_stamp"/>
+          <param name="end_stamp" value="end_stamp"/>
+          <param name="duration" value="duration"/>
+          <param name="billsec" value="billsec"/>
+          <param name="hangup_cause" value="hangup_cause"/>
+          <param name="uuid" value="uuid"/>
+          <param name="peer_uuid" value="bleg_uuid"/>
+      </cdr>
+  </configuration>

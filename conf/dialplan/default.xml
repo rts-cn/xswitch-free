@@ -1,0 +1,33 @@
+<include>
+  <context name="default">
+
+    <extension name="echo">
+      <condition field="destination_number" expression="^9196$">
+        <action application="answer"/>
+        <action application="echo" data=""/>
+      </condition>
+    </extension>
+
+    <extension name="conference">
+      <condition field="destination_number" expression="^3000$">
+        <action application="answer"/>
+        <action application="conference" data="3000"/>
+      </condition>
+    </extension>
+
+    <extension name="xswitch">
+      <condition field="destination_number" expression="^888$">
+        <action application="bridge" data="sofia/default/xswitch@xyt.xswitch.cn:18880"/>
+      </condition>
+    </extension>
+
+    <extension name="sample">
+      <condition>
+        <action application="info"/>
+        <!-- <action application="bridge" data="user/${destination_number}"/> -->
+        <action application="bridge" data="${sofia_contact(default/${destination_number}}"/>
+      </condition>
+    </extension>
+
+  </context>
+</include>
