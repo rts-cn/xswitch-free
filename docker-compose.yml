@@ -4,10 +4,10 @@ version: "3.3"
 services:
 
   xswitch:
-    container_name: xswitch-free
+    container_name: xswitch-free-study
     image: ccr.ccs.tencentyun.com/xswitch/xswitch-free
     environment:
-        - FREESWITCH_DOMAIN=free.xswitch.cn
+        - FREESWITCH_DOMAIN=${FREESWITCH_DOMAIN}
     env_file: .env
     # command: ["bash"]
     # stdin_open: true
@@ -19,6 +19,8 @@ services:
       - "${SIP_PORT:-5060}:${SIP_PORT:-5060}/tcp"
       - "${SIP_PUBLIC_PORT:-5080}:${SIP_PUBLIC_PORT:-5080}/udp"
       - "${SIP_PUBLIC_PORT:-5080}:${SIP_PUBLIC_PORT:-5080}/tcp"
+      - "${WS_PORT}:${WS_PORT}"
+      - "${WSS_PORT}:${WSS_PORT}"
     #   - "${VERTO_WS_PORT}:${VERTO_WS_PORT}"
     #   - "${VERTO_WSS_PORT}:${VERTO_WSS_PORT}"
     # cap_add:
@@ -26,3 +28,4 @@ services:
     #   - NET_ADMIN # for iptables to work
     volumes:
        - ./conf/:/usr/local/freeswitch/conf:cached
+       - ./certs/:/usr/local/freeswitch/certs

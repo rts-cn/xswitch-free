@@ -16,6 +16,14 @@
     <param name="ext-rtp-ip" value="$${ext_rtp_ip}"/>
     <param name="ext-sip-ip" value="$${ext_sip_ip}"/>
     <param name="sip-port" value="$${sip_port}"/>
+    <param name="tls" value="true"/>
+    <param name="tls-only" value="false"/>
+    <param name="tls-cert-dir" value="/usr/local/freeswitch/certs"/>
+    <param name="apply-candidate-acl" value="$${EXT_IP}"/>
+    <param name="apply-candidate-acl" value="rfc1918.auto"/>
+    <param name="apply-candidate-acl" value="localnet.auto"/>
+    <param name="ws-binding" value=":$${ws_port}" />
+		<param name="wss-binding" value=":$${wss_port}" />
 
     <!-- for easy dev -->
     <!-- <param name="accept-blind-reg" value="true"/> -->
