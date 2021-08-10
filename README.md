@@ -1,10 +1,10 @@
 # xswitch-free
 
-`xswitch-free`是一个Docker镜象，与<https://xswitch.cn>同款，有删减。本镜象一般都基于FreeSWITCH最新的版本，有一些我们自己的补丁。我们绝大多数的补丁都已经合并到了上游的FreeSWITCH仓库中，其它的一些补丁也会逐步开源出来。
+`xswitch-free`是一个Docker镜像，与<https://xswitch.cn>同款，有删减。本镜像一般都基于FreeSWITCH最新的版本，有一些我们自己的补丁。我们绝大多数的补丁都已经合并到了上游的FreeSWITCH仓库中，其它的一些补丁也会逐步开源出来。
 
 很多朋友想试用FreeSWITCH，但是从源代码安装比较复杂。FreeSWITCH虽然有相应的安装包，但用起来也不那么方便。
 
-现在，Docker已经成了事实上的部署方式，我们xswitch.cn早已采用Docker容器化部署。为了大家更容易使用，我们做了这一镜象，希望对大家有用。
+现在，Docker已经成了事实上的部署方式，我们xswitch.cn早已采用Docker容器化部署。为了大家更容易使用，我们做了这一镜像，希望对大家有用。
 
 # 环境准备
 
@@ -17,7 +17,7 @@
 
 Docker Compose也需要安装，但不是必须的，只是安装了能更方便些，下面的命令大都依赖于Docker Compose。
 
-本镜象支持在Linux、Mac、Windows宿主机上运行。
+本镜像支持在Linux、Mac、Windows宿主机上运行。
 
 # 快速上手
 
@@ -52,7 +52,7 @@ make start
 
 # 配置
 
-本镜象没有使用FreeSWITCH的默认配置。FreeSWITCH的默认配置为了展示FreeSWITCH各种强大的功能设计，复杂且初学者难以理解，所以，我们使用了最小化的配置，目标是让使用者快速上手，并进一步细化打造自己的镜像和容器。
+本镜像没有使用FreeSWITCH的默认配置。FreeSWITCH的默认配置为了展示FreeSWITCH各种强大的功能设计，复杂且初学者难以理解，所以，我们使用了最小化的配置，目标是让使用者快速上手，并进一步细化打造自己的镜像和容器。
 
 以下配置接受任何注册和打电话。也就是说，你可以用软电话。
 
@@ -61,7 +61,7 @@ make start
 <param name="accept-blind-auth" value="true"/>
 ```
 
-如果没有配置`EXT_IP`环境变最，需要将配置中如下内容注释掉。
+如果没有配置`EXT_IP`环境变量，需要将配置中如下内容注释掉。
 
 ```xml
 <param name="ext-rtp-ip" value="$${ext_rtp_ip}"/>
