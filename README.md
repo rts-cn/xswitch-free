@@ -127,7 +127,7 @@ make start
 默认的配置是NAT模式，我们在Profile中启动了如下配置：
 
 ```xml
-    <param name="local-network-acl" value="$${local_net_acl}"/>
+    <param name="local-network-acl" value="$${local_network_acl}"/>
 ```
 
 注意，该环境变量默认为`none`，它实际上是一个不存在的ACL，所以FreeSWITCH对任何来源IP都会认为它在NAT后面。
