@@ -79,6 +79,7 @@ make start
 * `make bash`：进入容器并进入`bash` Shell环境。可以进一步执行`fs_cli`等。
 * `make stop`：停止容器。
 * `make pull`：更新镜像，更新后可以用。
+* `make get-sounds`：下载声音文件到本地，需要有`wget`工具。
 
 如果没有安装Docker Compose，也可以直接使用Docker命令启动容器，如：
 
@@ -108,7 +109,7 @@ docker run --rm --name xswitch-free \
 
 ```yaml
     volumes:
-      - conf/:/usr/local/freeswitch/conf:cached
+      - ./conf/:/usr/local/freeswitch/conf:cached
 ```
 
 修改后需要重启镜像：
@@ -116,6 +117,15 @@ docker run --rm --name xswitch-free \
 ```bash
 make stop
 make start
+```
+
+# 增加声音文件
+
+本镜像为了压缩空间，没有将声音文件打包到镜像内。如果需要挂载声音文件，可以先执行`make get-sounds`命令下载声音文件，然后修改`docker-compose.yml`的`volumes`配置，增加挂载：
+
+```yaml
+    volumes:
+      - ./sounds/:/usr/local/freeswitch/sounds:cached
 ```
 
 # `host`模式网络
