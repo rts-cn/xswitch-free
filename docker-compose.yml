@@ -14,7 +14,7 @@ services:
     # tty: true
     # network_mode: host
     ports:
-      - "${RTP_START:-2000}-${RTP_END:-2000}:${RTP_START:-2100}-${RTP_END:-2100}/udp"
+      - "${RTP_START:-2000}-${RTP_END:-2100}:${RTP_START:-2000}-${RTP_END:-2100}/udp"
       - "${SIP_PORT:-5060}:${SIP_PORT:-5060}/udp"
       - "${SIP_PORT:-5060}:${SIP_PORT:-5060}/tcp"
       - "${SIP_PUBLIC_PORT:-5080}:${SIP_PUBLIC_PORT:-5080}/udp"
