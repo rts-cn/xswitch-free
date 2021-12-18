@@ -92,7 +92,7 @@ docker run --rm --name xswitch-free \
     -e sip_public_port=5080 \
     -e rtp_start=2000 \
     -e rtp_end=2010 \
-    xswitch-free
+    ccr.ccs.tencentyun.com/xswitch/xswitch-free
 ```
 
 可以看出，这样需要输入很多参数，所以，还是使用Docker Compose比较方便。
