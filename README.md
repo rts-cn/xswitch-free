@@ -14,6 +14,7 @@
 * https://www.runoob.com/docker/ubuntu-docker-install.html
 * https://www.runoob.com/docker/macos-docker-install.html
 * https://yq.aliyun.com/articles/625403
+* https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-containers （WSL2上的Docker远程容器入门）
 
 Docker Compose也需要安装，但不是必须的，只是安装了能更方便些，下面的命令大都依赖于Docker Compose。
 
