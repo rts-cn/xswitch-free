@@ -1,7 +1,7 @@
 SHELL = /bin/bash
 
 all:
-	echo Hi
+	@echo Hi
 
 setup:
 	if [[ ! -f .env ]]; then \
@@ -33,9 +33,9 @@ pull:
 	docker cp xswitch-free:/usr/local/freeswitch/conf .
 
 eject: conf
-	echo conf copied to local dir, please edit docker-compose.yml to use it
+	@echo conf copied to local dir, please edit docker-compose.yml to use it
 
 get-sounds:
 	wget -O sounds.zip https://xswitch.cn/download/sounds.zip
 	unzip sounds.zip
-	echo "edit docker-compose.yml to use it"
+	@echo "edit docker-compose.yml to use it"
