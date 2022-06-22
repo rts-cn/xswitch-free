@@ -180,3 +180,6 @@ make start
 
 * Q：在实际使用中，我们发现在Mac上，在使用UDP向FreeSWITCH注册的情况下，隔很短的时间注册就会失效，导致无法呼通终端，重新注册后能通。有什么好的解决方案吗？
 * A：这可能跟Docker的NAT实现有关，使用TCP注册没有该问题。
+
+* Q：xswitch-free跑起来后，在Docker里面跑`ps`发现有两个freeswitch的进程，这个是正常的吗？
+* A：是的，这是一个Feature。一个进程监控另一个，如果你Kill掉pid大的那一个进程，或者那个freeswitch进程崩溃了，监控进程就会重启一个。
