@@ -49,7 +49,7 @@ make start
 * `RTP_END`：结束RTP端口
 * `EXT_IP`：宿主机IP，或公网IP，默认SIP Profile中的`ext-sip-ip`及`ext-rtp-ip`会用到它。
 * `FREESWITCH_DOMAIN`：默认的FreeSWITCH域
-* `LOCAL_NETWORK_ACL`：默认为`none`，在`host`网络模式下可以关闭。
+* `LOCAL_NETWORK_ACL`：默认为`x`，在`host`网络模式下可以关闭。
 
 # 配置
 
@@ -141,7 +141,7 @@ make start
     <param name="local-network-acl" value="$${local_network_acl}"/>
 ```
 
-注意，该环境变量默认为`none`，它实际上是一个不存在的ACL，所以FreeSWITCH对任何来源IP都会认为它在NAT后面。
+注意，该环境变量默认为`x`，它实际上是一个不存在的ACL，所以FreeSWITCH对任何来源IP都会认为它在NAT后面。
 
 如果在`host`网络模式下可以在`.env`中注释掉这个环境变量，让它使用默认的`localnet.auto`。
 
