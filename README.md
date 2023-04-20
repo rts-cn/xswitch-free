@@ -176,7 +176,7 @@ make start
 * A：我们就是在生产上使用的，所以，没有任何问题。只是，我们默认的配置是为了帮助大家学习和入门，没有过多考虑安全性，如果在生产上使用，需要仔细配置。另外，也强烈推荐使用我们有商业技术支持的版本，参见<https://xswitch.cn/pages/xswitch-install/> 。
 
 * Q：我可以安装其它软件吗？
-* A：本镜像基于Debian Buster制作，你可以使用`apt-get update`以及`apt-get install xxxx`安装任何其它软件。
+* A：本镜像基于Debian Bullseye制作，你可以使用`apt-get update`以及`apt-get install xxxx`安装任何其它软件。
 
 * Q：在实际使用中，我们发现在Mac上，在使用UDP向FreeSWITCH注册的情况下，隔很短的时间注册就会失效，导致无法呼通终端，重新注册后能通。有什么好的解决方案吗？
 * A：这可能跟Docker的NAT实现有关，使用TCP注册没有该问题。
